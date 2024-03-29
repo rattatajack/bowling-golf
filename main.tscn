@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://da3e54pfr4s2h"]
 
-[ext_resource type="PackedScene" uid="uid://cp3xwc75nackd" path="res://player.tscn" id="1_05ks4"]
+[ext_resource type="PackedScene" uid="uid://cve7puys0iro0" path="res://BowlingBall.tscn" id="1_1f5oi"]
 [ext_resource type="PackedScene" uid="uid://28ufmlv0d3mg" path="res://pin.tscn" id="2_sfwd3"]
 [ext_resource type="Script" path="res://Camera.gd" id="2_yul0q"]
 
@@ -25,8 +25,8 @@ mesh = SubResource("BoxMesh_hom6s")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 11.65, 0)
 shadow_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("1_05ks4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.99146, 0)
+[node name="BowlingBall" parent="." instance=ExtResource("1_1f5oi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.99674, 0)
 
 [node name="Camera" type="Marker3D" parent="."]
 script = ExtResource("2_yul0q")

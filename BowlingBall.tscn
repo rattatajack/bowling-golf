@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cve7puys0iro0"]
+
+[ext_resource type="Texture2D" uid="uid://caatrenywueu2" path="res://Arrow.png" id="1_rngmb"]
+[ext_resource type="PackedScene" uid="uid://cp3xwc75nackd" path="res://player.tscn" id="2_0kcjp"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xgwlm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7lx5a"]
+albedo_texture = ExtResource("1_rngmb")
+
+[node name="BowlingBall" type="Node3D"]
+
+[node name="Mesh Arrow" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.99964, 0, 0.02684, 0, 1, 0, -0.02684, 0, -0.99964, 0, 0.649624, 2.07006)
+rotation_edit_mode = 2
+mesh = SubResource("PlaneMesh_xgwlm")
+surface_material_override/0 = SubResource("StandardMaterial3D_7lx5a")
+
+[node name="Player" parent="." instance=ExtResource("2_0kcjp")]
