@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cp3xwc75nackd"]
+[gd_scene load_steps=7 format=3 uid="uid://cp3xwc75nackd"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_jk6kf"]
+[ext_resource type="Material" uid="uid://ciarqeynxdj8b" path="res://materials/new_standard_material_3d.tres" id="2_ywqv6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fs418"]
 friction = 0.2
@@ -21,6 +22,7 @@ shape = SubResource("SphereShape3D_efmq4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_juvna")
+surface_material_override/0 = ExtResource("2_ywqv6")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 position = Vector2(214, 0)
