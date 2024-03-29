@@ -6,10 +6,16 @@ extends RigidBody3D
 @export var max_stroke_strength = 50
 
 var stroke_power = 5
-var stroke_direction = Vector2.AXIS_X
+var stroke_direction = Vector2(0, 1)
+
+func _integrate_forces(state):
+	if Input.is_action_just_pressed("stroke"):
+		##if grounded and no velocity
+		apply_impulse(Vector3(stroke_direction.x, 0, stroke_direction.y) * stroke_power)
+	
 
 
-func _physics_process(delta):
+func _process(delta):
 	var delta_power = 0
 	var delta_angle = 0
 
@@ -25,9 +31,3 @@ func _physics_process(delta):
 		
 	stroke_power = clamp(stroke_power + delta_power * delta, min_stroke_strength, max_stroke_strength)
 	stroke_direction = stroke_direction.rotated(delta_angle)
-	
-	
-	if Input.is_action_just_pressed("stroke"):
-		# if grounded and no velocity
-		#apply_force(Vector3(stroke_direction.x, 0, stroke_direction.y) * stroke_power)
-		apply_impulse(Vector3(stroke_direction.x, 0, stroke_direction.y) * 1_000)
