@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://da3e54pfr4s2h"]
+[gd_scene load_steps=5 format=3 uid="uid://da3e54pfr4s2h"]
 
 [ext_resource type="PackedScene" uid="uid://cp3xwc75nackd" path="res://player.tscn" id="1_05ks4"]
+[ext_resource type="PackedScene" uid="uid://28ufmlv0d3mg" path="res://pin.tscn" id="2_sfwd3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k1ly6"]
 size = Vector3(60, 2, 60)
@@ -32,3 +33,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.99146, 0)
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 24.6213, 26.8528)
 projection = 1
 size = 22.905
+
+[node name="pin" parent="." instance=ExtResource("2_sfwd3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.22103, 0)
+
+[node name="pin2" parent="." instance=ExtResource("2_sfwd3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39935, 1.45587, 0)
+
+[node name="pin3" parent="." instance=ExtResource("2_sfwd3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.333034, 1.22103, -8.59037)
+
+[node name="pin4" parent="." instance=ExtResource("2_sfwd3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.934817, 1.22103, 6.25212)
