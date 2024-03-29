@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjnqyjykxlgs4"]
+[gd_scene load_steps=4 format=3 uid="uid://cp3xwc75nackd"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_68xm5"]
+[ext_resource type="Script" path="res://player.gd" id="1_jk6kf"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_efmq4"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_juvna"]
 
 [node name="Player" type="RigidBody3D"]
-script = ExtResource("1_68xm5")
+constant_force = Vector3(0, 2, 0)
+script = ExtResource("1_jk6kf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_efmq4")
