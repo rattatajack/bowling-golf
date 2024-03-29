@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://da3e54pfr4s2h"]
+[gd_scene load_steps=6 format=3 uid="uid://da3e54pfr4s2h"]
 
 [ext_resource type="PackedScene" uid="uid://cp3xwc75nackd" path="res://player.tscn" id="1_05ks4"]
 [ext_resource type="PackedScene" uid="uid://28ufmlv0d3mg" path="res://pin.tscn" id="2_sfwd3"]
+[ext_resource type="Script" path="res://Camera.gd" id="2_yul0q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k1ly6"]
 size = Vector3(60, 2, 60)
@@ -27,9 +28,10 @@ shadow_enabled = true
 [node name="Player" parent="." instance=ExtResource("1_05ks4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.99146, 0)
 
-[node name="Marker3D" type="Marker3D" parent="."]
+[node name="Camera" type="Marker3D" parent="."]
+script = ExtResource("2_yul0q")
 
-[node name="Camera3D" type="Camera3D" parent="Marker3D"]
+[node name="Camera3D" type="Camera3D" parent="Camera"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 24.6213, 26.8528)
 projection = 1
 size = 22.905
