@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cp3xwc75nackd"]
+[gd_scene load_steps=6 format=3 uid="uid://cp3xwc75nackd"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_jk6kf"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fs418"]
+friction = 0.2
+bounce = 0.3
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_efmq4"]
 
@@ -9,7 +13,7 @@
 [sub_resource type="PlaneMesh" id="PlaneMesh_btw1v"]
 
 [node name="Player" type="RigidBody3D"]
-constant_force = Vector3(0, 2, 0)
+physics_material_override = SubResource("PhysicsMaterial_fs418")
 script = ExtResource("1_jk6kf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

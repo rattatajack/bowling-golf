@@ -11,7 +11,7 @@ var stroke_direction = Vector2(0, 1)
 func _integrate_forces(state):
 	if Input.is_action_just_pressed("stroke"):
 		##if grounded and no velocity
-		apply_impulse(Vector3(stroke_direction.x, 0, stroke_direction.y) * stroke_power)
+		apply_impulse(Vector3(stroke_direction.x, .1, stroke_direction.y) * stroke_power)
 	
 
 
