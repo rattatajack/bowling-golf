@@ -1,6 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://28ufmlv0d3mg"]
+[gd_scene load_steps=10 format=3 uid="uid://28ufmlv0d3mg"]
 
+[ext_resource type="Script" path="res://pin_destroy.gd" id="1_n83ad"]
 [ext_resource type="Script" path="res://pin.gd" id="1_waaou"]
+[ext_resource type="Material" uid="uid://bqkejcwa51x4b" path="res://materials/sparkle.tres" id="2_janpx"]
+[ext_resource type="Script" path="res://star_explosion.gd" id="3_foga8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3u8a2"]
 friction = 0.8
@@ -11,7 +14,19 @@ bounce = 0.7
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_usgog"]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m23v3"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 0.2, 0)
+turbulence_enabled = true
+turbulence_noise_strength = 5.94
+
+[sub_resource type="QuadMesh" id="QuadMesh_vd3p0"]
+material = ExtResource("2_janpx")
+size = Vector2(0.1, 0.1)
+
 [node name="pin" type="Node3D"]
+script = ExtResource("1_n83ad")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 mass = 0.2
@@ -26,3 +41,15 @@ shape = SubResource("CylinderShape3D_g1lij")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 mesh = SubResource("CylinderMesh_usgog")
 skeleton = NodePath("../..")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 32
+explosiveness = 0.85
+randomness = 0.83
+process_material = SubResource("ParticleProcessMaterial_m23v3")
+draw_pass_1 = SubResource("QuadMesh_vd3p0")
+script = ExtResource("3_foga8")
+
+[connection signal="pin_knocked_over" from="RigidBody3D" to="." method="_on_rigid_body_3d_pin_knocked_over"]
+[connection signal="pin_knocked_over" from="RigidBody3D" to="GPUParticles3D" method="_on_rigid_body_3d_pin_knocked_over"]

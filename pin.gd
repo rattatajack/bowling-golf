@@ -4,6 +4,9 @@ extends RigidBody3D
 @export var velocity_tolerance = .1
 @export var angular_velocity_tolerance = .1
 
+var is_upright = true
+
+signal pin_knocked_over
 
 func is_knocked_over():
 	return (
@@ -13,7 +16,9 @@ func is_knocked_over():
 		)
 
 func _physics_process(delta):
-	if is_knocked_over():
+	if is_upright and is_knocked_over():
 		print(rotation, rotation.length())
+		is_upright = false
+		pin_knocked_over.emit()
 		#emit_signal("pin_knocked_over")
-		get_parent().queue_free()
+		#get_parent().queue_free()

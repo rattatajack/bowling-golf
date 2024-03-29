@@ -46,7 +46,7 @@ size = 22.905
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.22103, 0)
 
 [node name="pin2" parent="." instance=ExtResource("2_sfwd3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39935, 1.45587, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39935, 2.45587, 0)
 
 [node name="pin3" parent="." instance=ExtResource("2_sfwd3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.333034, 1.22103, -8.59037)
